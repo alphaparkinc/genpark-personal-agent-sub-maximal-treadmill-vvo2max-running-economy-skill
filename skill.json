@@ -1,0 +1,61 @@
+{
+  "name": "genpark-personal-agent-sub-maximal-treadmill-vvo2max-running-economy-skill",
+  "version": "1.0.0",
+  "title": "Sub-Maximal Treadmill Running Economy & vVO2max Skill",
+  "description": "Sub-maximal running economy oxygen cost (ml O2/kg/km), velocity at VO2max (vVO2max), and marathon finishing time prediction. Built for GenPark (https://www.genpark.ai).",
+  "homepage": "https://www.genpark.ai",
+  "linkedin": "https://www.linkedin.com/company/92955550",
+  "category": "personal-agent",
+  "topics": [
+    "running-economy",
+    "vvo2max",
+    "marathon-pacing",
+    "exercise-physiology",
+    "personal-agent",
+    "model-context-protocol",
+    "genpark"
+  ],
+  "tools": [
+    {
+      "name": "calculate_running_economy_and_vvo2max",
+      "description": "Compute running economy and velocity at VO2 max (vVO2max km/h) from treadmill oxygen uptake telemetry.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "steady_state_vo2": {
+            "type": "number"
+          },
+          "running_speed_km_h": {
+            "type": "number"
+          },
+          "vo2_max": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "steady_state_vo2",
+          "running_speed_km_h",
+          "vo2_max"
+        ]
+      }
+    },
+    {
+      "name": "predict_marathon_finish_time",
+      "description": "Predict marathon finish time based on vVO2max and fractional aerobic utilization (80-85%).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "vvo2max_km_h": {
+            "type": "number"
+          },
+          "fractional_utilization_pct": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "vvo2max_km_h"
+        ]
+      }
+    }
+  ]
+}
